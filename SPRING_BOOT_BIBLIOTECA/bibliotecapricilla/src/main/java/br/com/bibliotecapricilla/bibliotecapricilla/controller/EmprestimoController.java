@@ -37,22 +37,22 @@ public class EmprestimoController {
 				.orElse(ResponseEntity.notFound().build());
 	}
 	
-	@GetMapping("/nome/{nome}")
+	@GetMapping("/emprestimo/{idEmprestimo}")
 	public ResponseEntity<List<Emprestimo>> GetByNome
-	(@PathVariable String nome){
-		return ResponseEntity.ok(repository.findAllByNomeContainingIgnoreCase(nome));
+	(@PathVariable String idEmprestimo){
+		return ResponseEntity.ok(repository.findAllByNomeContainingIgnoreCase(idEmprestimo));
 	}
 	
 	@PostMapping
-	public ResponseEntity<Emprestimo> Post (@RequestBody Emprestimo idEmprestimo){
+	public ResponseEntity<Emprestimo> Post (@RequestBody Emprestimo Emprestimo){
 		return ResponseEntity.status(HttpStatus.CREATED)
-				.body(repository.save(idEmprestimo));
+				.body(repository.save(Emprestimo));
 	}
 	
 	@PutMapping
-	public ResponseEntity<Emprestimo> Put (@RequestBody Emprestimo idEmprestimo){
+	public ResponseEntity<Emprestimo> Put (@RequestBody Emprestimo Emprestimo){
 		return ResponseEntity.status(HttpStatus.OK)
-				.body(repository.save(idEmprestimo));
+				.body(repository.save(Emprestimo));
 	}
 	
 	@DeleteMapping("/{idEmprestimo}")

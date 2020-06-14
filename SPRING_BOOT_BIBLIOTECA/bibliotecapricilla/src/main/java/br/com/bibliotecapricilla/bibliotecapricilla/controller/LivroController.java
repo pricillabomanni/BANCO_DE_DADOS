@@ -47,15 +47,15 @@ public class LivroController {
 	}
 	
 	@PostMapping
-	public ResponseEntity<Livro> Post (@RequestBody Livro isbn){
+	public ResponseEntity<Livro> Post (@RequestBody Livro Livro){
 		return ResponseEntity.status(HttpStatus.CREATED)
-				.body(repository.save(isbn));
+				.body(repository.save(Livro));
 	}
 	
 	@PutMapping
-	public ResponseEntity<Livro> Put (@RequestBody Livro isbn){
+	public ResponseEntity<Livro> Put (@RequestBody Livro Livro){
 		return ResponseEntity.status(HttpStatus.OK)
-				.body(repository.save(isbn));
+				.body(repository.save(Livro));
 	}
 	
 	@DeleteMapping("/{isbn}")
